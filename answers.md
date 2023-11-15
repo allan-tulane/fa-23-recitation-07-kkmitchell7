@@ -14,7 +14,7 @@ W(n) = n*m
 
 - **4)** What is the worst case number of times we need to call reachable to determine if a graph is connected?
 
-Once because reachable determines all of the reachable nodes...
+Once because reachable determines all of the reachable nodes and if we're missing any nodes connected to any one node, the graph isn't fully connected.
 
 - **5)**
 
