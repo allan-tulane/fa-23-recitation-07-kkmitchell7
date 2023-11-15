@@ -8,7 +8,7 @@ def make_undirected_graph(edge_list):
         graph[e[1]].add(e[0])
     return graph
 
-
+#determine all the reachable nodes of a graph from the starting node
 def reachable(graph, start_node):
     """
     Returns:
@@ -27,6 +27,7 @@ def reachable(graph, start_node):
 
 
 
+#Check if a graph is fully connected
 
 def connected(graph):
     connectednodes = reachable(graph,graph[0])
@@ -36,13 +37,16 @@ def connected(graph):
     return true
 
 
-
+"""6 Next, we'll use reachable to determine the number of connected 
+components in a graph. Complete n_components and test with test_n_components.
+ Again, think about how to minimize the number of calles to reachable you 
+must make."""
 
 def n_components(graph):
     """
     Returns:
       the number of connected components in an undirected graph
     """
-    ### TODO
-    pass
+    connectednodes = reachable(graph,graph[0])
+    return len(connectednodes)
 
