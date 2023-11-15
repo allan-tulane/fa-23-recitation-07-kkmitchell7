@@ -17,8 +17,11 @@ def reachable(graph, start_node):
     result = set([start_node])
     frontier = set([start_node])
     while len(frontier) != 0:
-        ###TODO
-        pass
+        for item in frontier:
+            connection = graph[item]
+            result.add(item)
+            frontier.remove(item)
+            frontier.add(connection)
     return result
 
 
