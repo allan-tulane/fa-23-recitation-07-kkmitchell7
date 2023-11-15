@@ -1,6 +1,6 @@
 # CMPS 2200 Recitation 10## Answers
 
-**Name:**_________________________
+**Name:** Kailen Mitchell
 **Name:**_________________________
 
 
@@ -8,7 +8,9 @@ Place all written answers from `recitation-07.md` here for easier grading.
 
 
 
-- **2)**
+- **2)** What is the work of reachable, assuming $n$ nodes and $m$ edges?
+
+W(n) = n*m
 
 - **4)**
 
