@@ -29,8 +29,11 @@ def reachable(graph, start_node):
 
 
 def connected(graph):
-    ### TODO
-    pass
+    connectednodes = reachable(graph,graph[0])
+    for item in connectednodes:
+        if item not in graph:
+            return false
+    return true
 
 
 
