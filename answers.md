@@ -18,8 +18,8 @@ Once because reachable determines all of the reachable nodes and if we're missin
 
 - **5)** What is the work of connected, assuming $n$ nodes and $m$ edges?
 
-W(n) = O(n+m+m)
+W(n) = O(n+m+n)
 
 - **7)** What if we switched the graph representation to an adjacency matrix? Would the work of reachable change? If so, what would it be? If not, why not?
 
-Yes the work would change to be O(m^2) since now we have to traverse an entire 3D matrix rather than just using the list connections
+Yes the work would change to be O(m^2) since now we have to traverse an entire 2D matrix rather than just using the list connections

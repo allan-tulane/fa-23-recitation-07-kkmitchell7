@@ -14,14 +14,21 @@ def reachable(graph, start_node):
     Returns:
       the set of nodes reachable from start_node
     """
-    result = set([start_node])
-    frontier = set([start_node])
+    result = set(start_node)
+    frontier = set(start_node)
     while len(frontier) != 0:
-        for item in frontier:
-            connection = graph[item]
+        #get item from frontier and remove
+        item = frontier.pop()
+        
+        #add frontier to result
+        if item not in result:
             result.add(item)
-            frontier.remove(item)
-            frontier.add(connection)
+
+        #get all connections from graph to add to the new frontier
+        connection = graph[item]
+        for letter in connection:
+            if letter not in result:
+                frontier.add(letter)
     return result
 
 
@@ -30,11 +37,11 @@ def reachable(graph, start_node):
 #Check if a graph is fully connected
 
 def connected(graph):
-    connectednodes = reachable(graph,graph[0])
-    for item in connectednodes:
-        if item not in graph:
-            return false
-    return true
+    connectednodes = reachable(graph,list(graph.keys())[0])
+    for item in graph:
+        if item not in connectednodes:
+            return False
+    return True
 
 
 """6 Next, we'll use reachable to determine the number of connected 
@@ -47,6 +54,20 @@ def n_components(graph):
     Returns:
       the number of connected components in an undirected graph
     """
-    connectednodes = reachable(graph,graph[0])
-    return len(connectednodes)
+    num_components = 0
+    curr_node = list(graph.keys())[0]
+    tobe_visited = set(graph.keys())
+    while len(tobe_visited) != 0:
+        num_components +=1
+        connectednodes = list(reachable(graph,curr_node))
+        for node in connectednodes:
+            tobe_visited.discard(node)
+        
+        print(tobe_visited)
+        if len(tobe_visited) != 0:
+            curr_node = tobe_visited.pop()
+        
+    
+    return num_components
+
 
